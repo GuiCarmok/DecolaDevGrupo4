@@ -1,10 +1,10 @@
 # Repositório Decola Dev - Avanade
 
-Read-me do grupo 4
+Read-me do grupo 4<br>
 
-Integrantes:
--Anita
--Débora
--Marlei
--José Guilherme
+Integrantes:<br>
+-Anita <br>
+-Débora <br>
+-Marlei <br>
+-José Guilherme<br>
 -Patrícia
