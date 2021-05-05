@@ -1,0 +1,70 @@
+<div class="list row box-content">
+  <div class="col-md-8">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Buscar por título"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchTitle()"
+        >
+          Buscar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <h4>Lista de tutoriais</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of tutorials; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+        {{ tutorial.title }}
+      </li>
+    </ul>
+
+    <section class="list-group-item" id="center">
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()">
+        Excluir todos os tutoriais
+      </button>
+    </section>
+  </div>
+
+  <div class="col-md-6">
+    <div *ngIf="currentTutorial" class="tutorial-description">
+      <h4>Tutorial</h4>
+      <div>
+        <label><strong>Title:</strong></label>
+        <span>{{ currentTutorial.title }}</span>
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentTutorial.description }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentTutorial.published ? "Published" : "Pending" }}
+      </div>
+
+      <a
+        class="badge badge-warning"
+        routerLink="/tutorials/{{ currentTutorial.id }}"
+        >Editar</a
+      >
+    </div>
+
+    <div *ngIf="!currentTutorial">
+      <br />
+      <span>Selecione um tutorial</span>
+    </div>
+  </div>
+</div>
